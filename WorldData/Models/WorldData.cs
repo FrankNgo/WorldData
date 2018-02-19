@@ -132,6 +132,84 @@ namespace WorldData.Models
         return filterByContinent;
     }
 
+      public static List<Country> FilterRegion()
+      {
+          List<Country> filterByRegion = new List<Country> {};
+          MySqlConnection conn = DB.Connection();
+          conn.Open();
+          MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+          cmd.CommandText = @"SELECT Name, Continent, Region, SurfaceArea, Population FROM Country ORDER BY Region";
+          MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+          while(rdr.Read())
+          {
+            string countryName = rdr.GetString(0);
+            string countryContinent = rdr.GetString(1);
+            string countryRegion = rdr.GetString(2);
+            float countrySurface = rdr.GetFloat(3);
+            int countryPopulation = rdr.GetInt32(4);
+            Country newCountry = new Country(countryName,countryContinent, countryRegion, countrySurface, countryPopulation);
+            filterByRegion.Add(newCountry);
+          }
+          conn.Close();
+          if (conn != null)
+          {
+              conn.Dispose();
+          }
+          return filterByRegion;
+      }
+
+      public static List<Country> FilterSurface()
+      {
+          List<Country> filterBySurface = new List<Country> {};
+          MySqlConnection conn = DB.Connection();
+          conn.Open();
+          MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+          cmd.CommandText = @"SELECT Name, Continent, Region, SurfaceArea, Population FROM Country ORDER BY SurfaceArea desc";
+          MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+          while(rdr.Read())
+          {
+            string countryName = rdr.GetString(0);
+            string countryContinent = rdr.GetString(1);
+            string countryRegion = rdr.GetString(2);
+            float countrySurface = rdr.GetFloat(3);
+            int countryPopulation = rdr.GetInt32(4);
+            Country newCountry = new Country(countryName,countryContinent, countryRegion, countrySurface, countryPopulation);
+            filterBySurface.Add(newCountry);
+          }
+          conn.Close();
+          if (conn != null)
+          {
+              conn.Dispose();
+          }
+          return filterBySurface;
+      }
+
+      public static List<Country> FilterPopulation()
+      {
+          List<Country> filterByPopulation = new List<Country> {};
+          MySqlConnection conn = DB.Connection();
+          conn.Open();
+          MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+          cmd.CommandText = @"SELECT Name, Continent, Region, SurfaceArea, Population FROM Country ORDER BY Population desc";
+          MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+          while(rdr.Read())
+          {
+            string countryName = rdr.GetString(0);
+            string countryContinent = rdr.GetString(1);
+            string countryRegion = rdr.GetString(2);
+            float countrySurface = rdr.GetFloat(3);
+            int countryPopulation = rdr.GetInt32(4);
+            Country newCountry = new Country(countryName,countryContinent, countryRegion, countrySurface, countryPopulation);
+            filterByPopulation.Add(newCountry);
+          }
+          conn.Close();
+          if (conn != null)
+          {
+              conn.Dispose();
+          }
+          return filterByPopulation;
+      }
+
 
   }
 }

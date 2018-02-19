@@ -18,11 +18,27 @@
   font-size: 2.3em;
 }
 
-#filter {
+#filter{
+  list-style-type: none
   font-weight: bold;
   padding-left: 6em;
 
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+li {
+   float: left;
+   padding-left: 2em;
+}
+
+
 
 
 body {

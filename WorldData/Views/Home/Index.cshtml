@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/css/styles.css" type="text/css">
   </head>
   <body>
+    <div class="container">
     <div class="jumbotron">
       <h1>SHOW ME THE COUNTRIES!</h1>
       <h2><i>a geography app by Frank and Nico</i></h2>
@@ -20,16 +21,29 @@
     </div>
     <br>
     <div id ="filter">
-    <i>filter by:</i>
+    <i><b><font size="4em">filter by:</font></b></i>
+    <ul id="filter">
+    <li>
     <form method="post" action="/filter-continent">
-    <button type="submit" class="btn btn-danger">Continent</button>
+      <button type="submit" class="btn btn-danger">Continent</button>
+    </form>
+    </li>
+    <li>
     <form method="post" action="/filter-region">
-    <button type="submit" class="btn btn-info">Region</button>
+      <button type="submit" class="btn btn-info">Region</button>
+    </form>
+    </li>
+    <li>
     <form method="post" action="/filter-surface-area">
-    <button type="submit" class="btn btn-warning">Size</button>
+      <button type="submit" class="btn btn-warning">Size</button>
+    </form>
+  </li>
+  <li>
     <form method="post" action="/filter-population">
-    <button type="submit" class="btn btn-primary">Population</button>
-  </form>
+      <button type="submit" class="btn btn-primary">Population</button>
+    </form>
+  </li>
+</ul>
   <br>
   <br>
 </div>
@@ -38,6 +52,6 @@
     {
       <p>@country.GetName() <font color="#d9534f">@country.GetContinent()</font> <font color="#5bc0de">@country.GetRegion()</font> <font color="#f0ad4e">@country.GetSurface() sq. miles</font>   <font color="#0275d8">@country.GetPopulation()</font> </p>
     }
-
+  </div>
   </div>
   </body>
