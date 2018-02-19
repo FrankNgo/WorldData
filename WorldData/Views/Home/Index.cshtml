@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SHOW ME THE COUNTRIES</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>SHOW ME THE COUNTRIES!</h1>
+      <h2><i>a geography app by Frank and Nico</i></h2>
+  </div>
+    <br>
+    <div id ="showMe">
+      <form action="/filter-name" method="post">
+        <input name="name" type="text" placeholder="COUNTRY NAME">
+        <button type="submit">SHOW ME THE COUNTRIES!</button>
+      </form>
+    </div>
+    <br>
+    <div id ="filter">
+    <i>filter by:</i>
+    <form method="post" action="/filter-continent">
+    <button type="submit" class="btn btn-danger">Continent</button>
+    <form method="post" action="/filter-region">
+    <button type="submit" class="btn btn-info">Region</button>
+    <form method="post" action="/filter-surface-area">
+    <button type="submit" class="btn btn-warning">Size</button>
+    <form method="post" action="/filter-population">
+    <button type="submit" class="btn btn-primary">Population</button>
+  </form>
+  <br>
+  <br>
+</div>
+    <div id="output">
+    @foreach (var country in Model)
+    {
+      <p>@country.GetName() <font color="#d9534f">@country.GetContinent()</font> <font color="#5bc0de">@country.GetRegion()</font> <font color="#f0ad4e">@country.GetSurface() sq. miles</font>   <font color="#0275d8">@country.GetPopulation()</font> </p>
+    }
+
+  </div>
+  </body>

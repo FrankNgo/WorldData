@@ -1,0 +1,34 @@
+.jumbotron {
+  padding-left: 4em;
+  background: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+  color: white;
+}
+
+#output {
+  padding-left: 2em;
+  display: block;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#showMe {
+  padding-left: 4em;
+  display: block;
+  font-weight: bold;
+  font-size: 2.3em;
+}
+
+#filter {
+  font-weight: bold;
+  padding-left: 6em;
+
+}
+
+
+body {
+  background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
